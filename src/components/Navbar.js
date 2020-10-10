@@ -44,7 +44,7 @@ const Navbar = class extends React.Component {
         <div className="container">
           <div className="navbar-brand">
             <Link to="/" className="navbar-item" title="Logo">
-              <img src={logo} alt="Eric's Marvelous Store" />
+              <strong>Eric's Marvelous Store</strong>
             </Link>
             {/* Hamburger menu */}
             <div
@@ -91,18 +91,6 @@ const Navbar = class extends React.Component {
                   );
                 }}
               </CartContext.Consumer>
-            </div>
-            <div className="navbar-end has-text-centered">
-              <a
-                className="navbar-item"
-                href="https://github.com/bigcommerce/gatsby-bigcommerce-netlify-cms-starter"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="icon">
-                  <img src={github} alt="Github" />
-                </span>
-              </a>
             </div>
           </div>
         </div>
