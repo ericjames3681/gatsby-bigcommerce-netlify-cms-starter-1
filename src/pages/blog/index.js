@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 
-import Layout from '../../components/Layout'
-import BlogRoll from '../../components/BlogRoll'
+import Layout from "../../components/Layout";
+import BlogRoll from "../../components/BlogRoll";
 
 export default class BlogIndexPage extends React.Component {
   render() {
@@ -16,10 +16,11 @@ export default class BlogIndexPage extends React.Component {
           <h1
             className="has-text-weight-bold is-size-1"
             style={{
-              boxShadow: '0.5rem 0 0 rgba(0, 0, 0, 0.75), -0.5rem 0 0 rgba(0, 0, 0, 0.75)',
-              backgroundColor: 'rgba(0, 0, 0, 0.75)',
-              color: 'white',
-              padding: '1rem',
+              boxShadow:
+                "0.5rem 0 0 rgba(0, 0, 0, 0.75), -0.5rem 0 0 rgba(0, 0, 0, 0.75)",
+              backgroundColor: "rgba(0, 0, 0, 0.75)",
+              color: "white",
+              padding: "1rem",
             }}
           >
             The Store Blog
@@ -33,6 +34,6 @@ export default class BlogIndexPage extends React.Component {
           </div>
         </section>
       </Layout>
-    )
+    );
   }
 }

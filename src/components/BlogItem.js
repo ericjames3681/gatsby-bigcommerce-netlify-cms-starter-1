@@ -1,17 +1,19 @@
-import React from 'react';
-import { Link } from 'gatsby';
-import PreviewCompatibleImage from './PreviewCompatibleImage'
+import React from "react";
+import { Link } from "gatsby";
+import PreviewCompatibleImage from "./PreviewCompatibleImage";
 
 class BlogItem extends React.Component {
   render() {
     const post = this.props.post;
-    const columnWidth = this.props.columnWidth ? this.props.columnWidth : 'is-6';
+    const columnWidth = this.props.columnWidth
+      ? this.props.columnWidth
+      : "is-6";
 
     return (
       <div className={`is-parent column ${columnWidth}`} key={post.id}>
         <article
           className={`blog-list-item tile is-child box notification ${
-            post.frontmatter.featuredpost ? 'is-featured' : ''
+            post.frontmatter.featuredpost ? "is-featured" : ""
           }`}
         >
           <header>
@@ -20,9 +22,7 @@ class BlogItem extends React.Component {
                 <PreviewCompatibleImage
                   imageInfo={{
                     image: post.frontmatter.featuredimage,
-                    alt: `featured image thumbnail for post ${
-                      post.title
-                    }`,
+                    alt: `featured image thumbnail for post ${post.title}`,
                   }}
                 />
               </div>
@@ -50,7 +50,7 @@ class BlogItem extends React.Component {
           </p>
         </article>
       </div>
-    )
+    );
   }
 }
 

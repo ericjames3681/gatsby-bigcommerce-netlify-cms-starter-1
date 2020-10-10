@@ -1,21 +1,18 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql, StaticQuery } from 'gatsby'
-import BlogItem from './BlogItem'
+import React from "react";
+import PropTypes from "prop-types";
+import { graphql, StaticQuery } from "gatsby";
+import BlogItem from "./BlogItem";
 
 class BlogRoll extends React.Component {
   render() {
-    const { data } = this.props
-    const { edges: posts } = data.allMarkdownRemark
+    const { data } = this.props;
+    const { edges: posts } = data.allMarkdownRemark;
 
     return (
       <div className="columns is-multiline">
-        {posts &&
-          posts.map(({ node: post }) => (
-            <BlogItem post={post} />
-          ))}
+        {posts && posts.map(({ node: post }) => <BlogItem post={post} />)}
       </div>
-    )
+    );
   }
 }
 
@@ -25,7 +22,7 @@ BlogRoll.propTypes = {
       edges: PropTypes.array,
     }),
   }),
-}
+};
 
 export default () => (
   <StaticQuery
@@ -62,4 +59,4 @@ export default () => (
     `}
     render={(data, count) => <BlogRoll data={data} count={count} />}
   />
-)
+);
