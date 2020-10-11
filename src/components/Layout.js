@@ -1,11 +1,11 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import Footer from './Footer';
-import Navbar from './Navbar';
-import Notify from './bigcommerce/Notify';
-import './all.sass';
-import './Layout.css';
-import useSiteMetadata from './SiteMetadata';
+import React from "react";
+import { Helmet } from "react-helmet";
+import Footer from "./Footer";
+import Navbar from "./Navbar";
+import Notify from "./bigcommerce/Notify";
+import "./all.sass";
+import "./Layout.css";
+import useSiteMetadata from "./SiteMetadata";
 
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata();
@@ -45,7 +45,10 @@ const TemplateWrapper = ({ children }) => {
         <meta property="og:title" content={title} />
         <meta property="og:url" content="/" />
         <meta property="og:image" content="/img/og-image.jpg" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
       </Helmet>
       <Notify />
       <Navbar />
