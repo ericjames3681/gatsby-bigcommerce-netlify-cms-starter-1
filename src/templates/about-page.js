@@ -1,38 +1,43 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import Content, { HTMLContent } from '../components/Content'
+import React from "react";
+import PropTypes from "prop-types";
+import { graphql } from "gatsby";
+import Layout from "../components/Layout";
+import Content, { HTMLContent } from "../components/Content";
 
-export const AboutPageTemplate = ({ 
-  image, 
-  title, 
-  content, 
-  contentComponent 
+export const AboutPageTemplate = ({
+  image,
+  title,
+  content,
+  contentComponent,
 }) => {
-  const PageContent = contentComponent || Content
+  const PageContent = contentComponent || Content;
 
   return (
     <div className="content">
       <div
         className="full-width-image-container margin-top-0"
-        style={{
-          backgroundImage: `url(${
-            !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-          })`
-        }}>
+        style={
+          {
+            // backgroundImage: `url(${
+            //   !!image.childImageSharp ? image.childImageSharp.fluid.src : image
+            // })`
+          }
+        }
+      >
         <h2
           className="has-text-weight-bold is-size-1"
           style={{
-            boxShadow: '0.5rem 0 0 rgba(0, 0, 0, 0.75), -0.5rem 0 0 rgba(0, 0, 0, 0.75)',
-            backgroundColor: 'rgba(0, 0, 0, 0.75)',
-            color: 'white',
-            padding: '1rem'
-          }}>
-          {title}
+            boxShadow:
+              "0.5rem 0 0 rgba(0, 0, 0, 0.75), -0.5rem 0 0 rgba(0, 0, 0, 0.75)",
+            backgroundColor: "rgba(0, 0, 0, 0.75)",
+            color: "white",
+            padding: "1rem",
+          }}
+        >
+          (Title in src/templates/about-page.js)
         </h2>
       </div>
-      
+
       <div className="container">
         <div className="columns">
           <div className="column is-10 is-offset-1">
@@ -46,18 +51,18 @@ export const AboutPageTemplate = ({
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 AboutPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string.isRequired,
   content: PropTypes.string,
   contentComponent: PropTypes.func,
-}
+};
 
 const AboutPage = ({ data }) => {
-  const { markdownRemark: post } = data
+  const { markdownRemark: post } = data;
 
   return (
     <Layout>
@@ -68,14 +73,14 @@ const AboutPage = ({ data }) => {
         content={post.html}
       />
     </Layout>
-  )
-}
+  );
+};
 
 AboutPage.propTypes = {
   data: PropTypes.object.isRequired,
-}
+};
 
-export default AboutPage
+export default AboutPage;
 
 export const aboutPageQuery = graphql`
   query AboutPage($id: String!) {
@@ -93,4 +98,4 @@ export const aboutPageQuery = graphql`
       }
     }
   }
-`
+`;

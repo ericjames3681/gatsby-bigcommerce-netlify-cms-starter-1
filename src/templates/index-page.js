@@ -1,64 +1,67 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link, graphql } from 'gatsby';
+import React from "react";
+import PropTypes from "prop-types";
+import { Link, graphql } from "gatsby";
 
-import Layout from '../components/Layout';
-import PhotoGrid from '../components/PhotoGrid';
-import BlogItem from '../components/BlogItem';
+import Layout from "../components/Layout";
+import PhotoGrid from "../components/PhotoGrid";
+import BlogItem from "../components/BlogItem";
 
-export const IndexPageTemplate = ({
-  image,
-  title,
-  subtitle,
-  heading,
-  mainpitch,
-  bigimage,
-  description,
-  intro,
-  post
-}) => (
+export const IndexPageTemplate = (
+  {
+    // image,
+    // title,
+    // subtitle,
+    // heading,
+    // mainpitch,
+    // bigimage,
+    // description,
+    // intro,
+    // post,
+  }
+) => (
   <div>
     <div
       className="full-width-image margin-top-0"
       style={{
-        backgroundImage: `url(${
-          !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-        })`,
         backgroundPosition: `top left`,
-        backgroundAttachment: `fixed`
-      }}>
+        backgroundAttachment: `fixed`,
+      }}
+    >
       <div
         style={{
-          display: 'flex',
-          height: '150px',
-          lineHeight: '1',
-          justifyContent: 'space-around',
-          alignItems: 'left',
-          flexDirection: 'column'
-        }}>
+          display: "flex",
+          height: "150px",
+          lineHeight: "1",
+          justifyContent: "space-around",
+          alignItems: "left",
+          flexDirection: "column",
+        }}
+      >
         <h1
           className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
           style={{
             boxShadow:
-              'rgba(0, 0, 0, 0.75) 0.5rem 0px 0px, rgba(0, 0, 0, 0.75) -0.5rem 0px 0px',
-            backgroundColor: 'rgba(0, 0, 0, 0.75)',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em'
-          }}>
-          {title}
+              "rgba(0, 0, 0, 0.75) 0.5rem 0px 0px, rgba(0, 0, 0, 0.75) -0.5rem 0px 0px",
+            backgroundColor: "rgba(0, 0, 0, 0.75)",
+            color: "white",
+            lineHeight: "1",
+            padding: "0.25em",
+          }}
+        >
+          (Some phrase in src/templates/index-page.js)
         </h1>
         <h3
           className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
           style={{
             boxShadow:
-              'rgba(0, 0, 0, 0.75) 0.5rem 0px 0px, rgba(0, 0, 0, 0.75) -0.5rem 0px 0px',
-            backgroundColor: 'rgba(0, 0, 0, 0.75)',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em'
-          }}>
-          {subtitle}
+              "rgba(0, 0, 0, 0.75) 0.5rem 0px 0px, rgba(0, 0, 0, 0.75) -0.5rem 0px 0px",
+            backgroundColor: "rgba(0, 0, 0, 0.75)",
+            color: "white",
+            lineHeight: "1",
+            padding: "0.25em",
+          }}
+        >
+          (Some other phrase)
         </h3>
       </div>
     </div>
@@ -71,36 +74,15 @@ export const IndexPageTemplate = ({
               <div className="content">
                 <div className="content">
                   <div className="tile">
-                    <h3 className="subtitle">{mainpitch.description}</h3>
+                    <h3 className="subtitle">(Store Descrition)</h3>
                   </div>
                 </div>
-                
-                <section className="section">
-                  <div className="container has-text-centered">
-                    <div className="block">
-                      <img src={bigimage.image.publicURL} alt={bigimage.alt} />
-                    </div>
-                    
-                    <PhotoGrid gridItems={intro.blurbs} />
-                    
-                    <h4 className="title is-spaced is-4">{intro.heading}</h4>
-                    <p className="subtitle">{intro.description}</p>
-                  </div>
-                </section>
-                
+
                 <div className="columns">
                   <div className="column is-12 has-text-centered">
                     <Link className="btn" to="/products">
-                      See all products
+                      (Link to PRODUCTS)
                     </Link>
-                  </div>
-                </div>
-                <div className="column is-12">
-                  <BlogItem post={post} columnWidth="is-12" />
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/blog">
-                      Read more
-                    </Link> 
                   </div>
                 </div>
               </div>
@@ -121,9 +103,9 @@ IndexPageTemplate.propTypes = {
   bigimage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   description: PropTypes.string,
   intro: PropTypes.shape({
-    blurbs: PropTypes.array
+    blurbs: PropTypes.array,
   }),
-  post: PropTypes.object
+  post: PropTypes.object,
 };
 
 const IndexPage = ({ data }) => {
@@ -149,12 +131,12 @@ const IndexPage = ({ data }) => {
 IndexPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object
+      frontmatter: PropTypes.object,
     }),
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.array,
-    })
-  })
+    }),
+  }),
 };
 
 export default IndexPage;
@@ -178,7 +160,7 @@ export const pageQuery = graphql`
           description
         }
         bigimage {
-         image {
+          image {
             childImageSharp {
               fluid(maxWidth: 240, quality: 64) {
                 ...GatsbyImageSharpFluid
@@ -205,7 +187,10 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___featuredpost, frontmatter___date] }
+      sort: {
+        order: DESC
+        fields: [frontmatter___featuredpost, frontmatter___date]
+      }
       filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
       limit: 1
     ) {
