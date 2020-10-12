@@ -3,21 +3,19 @@ import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
 
 import Layout from "../components/Layout";
-import PhotoGrid from "../components/PhotoGrid";
-import BlogItem from "../components/BlogItem";
+// import PhotoGrid from "../components/PhotoGrid";
+// import BlogItem from "../components/BlogItem";
 
 export const IndexPageTemplate = (
-  {
-    // image,
-    // title,
-    // subtitle,
-    // heading,
-    // mainpitch,
-    // bigimage,
-    // description,
-    // intro,
-    // post,
-  }
+  subtitle
+  // image,
+  // title,
+  // heading,
+  // mainpitch,
+  // bigimage,
+  // description,
+  // intro,
+  // post,
 ) => (
   <div>
     <div
