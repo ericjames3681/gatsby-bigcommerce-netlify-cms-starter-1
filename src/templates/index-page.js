@@ -7,15 +7,17 @@ import Layout from "../components/Layout";
 // import BlogItem from "../components/BlogItem";
 
 export const IndexPageTemplate = (
-  subtitle
-  // image,
-  // title,
-  // heading,
-  // mainpitch,
-  // bigimage,
-  // description,
-  // intro,
-  // post,
+  {
+    // image,
+    // title,
+    // subtitle,
+    // heading,
+    // mainpitch,
+    // bigimage,
+    // description,
+    // intro,
+    // post,
+  }
 ) => (
   <div>
     <div
